@@ -1,0 +1,182 @@
+# Copyright (C) 2019 Team Yoast
+# This file is distributed under the same license as the Granular Control for Yoast SEO package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Granular Control for Yoast SEO 0.1\n"
+"Report-Msgid-Bugs-To: "
+"https://github.com/yoast/yoast-seo-granular-control/issues\n"
+"POT-Creation-Date: 2019-08-13 13:08:21+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yoast Translate Team <translations@yoast.com>\n"
+"Language-Team: Yoast Translate <translations@yoast.com>\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: admin/class-admin-page.php:78
+msgid "No news items, feed might be broken..."
+msgstr ""
+
+#: admin/class-admin-page.php:104
+msgid "Like Yoast on Facebook"
+msgstr ""
+
+#: admin/class-admin-page.php:105
+msgid "Follow Yoast on Twitter"
+msgstr ""
+
+#: admin/class-admin-page.php:106
+msgid "Subscribe by email"
+msgstr ""
+
+#: admin/class-admin-page.php:108
+msgid "Latest news from Yoast"
+msgstr ""
+
+#: admin/class-admin.php:62
+msgid "Yoast SEO Granular Control"
+msgstr ""
+
+#: admin/class-admin.php:63
+msgid "Granular Control"
+msgstr ""
+
+#: admin/class-admin.php:94
+msgid "Settings"
+msgstr ""
+
+#: admin/class-options-admin.php:50
+msgid "Indexing settings"
+msgstr ""
+
+#: admin/class-options-admin.php:58
+msgid "Noindex paginated archives"
+msgstr ""
+
+#: admin/class-options-admin.php:78
+msgid "XML sitemap settings"
+msgstr ""
+
+#: admin/class-options-admin.php:86
+msgid "Exclude images"
+msgstr ""
+
+#: admin/class-options-admin.php:97
+msgid "Exclude posts/pages by ID"
+msgstr ""
+
+#: admin/class-options-admin.php:98
+msgid "Exclude tags/categories/terms by ID"
+msgstr ""
+
+#: admin/class-options-admin.php:104
+msgid "Separate with commas"
+msgstr ""
+
+#: admin/class-options-admin.php:159
+msgid ""
+"If you want to change Yoast SEO's defaults for indexing, this is your spot. "
+"Note that the defaults you're changing are defaults in Yoast SEO for a good "
+"reason, so you're doing this at your own risk."
+msgstr ""
+
+#: admin/class-options-admin.php:168
+msgid "Change the settings for XML sitemaps."
+msgstr ""
+
+#: admin/views/admin-page.php:12
+msgid "Yoast SEO Granular controls"
+msgstr ""
+
+#: admin/views/admin-page.php:21
+msgid "Indexing"
+msgstr ""
+
+#: admin/views/admin-page.php:22
+msgid "XML Sitemaps"
+msgstr ""
+
+#: admin/views/admin-page.php:34
+msgid "Save settings"
+msgstr ""
+
+#: admin/views/like-box.php:8
+msgid "Why not do any or all of the following:"
+msgstr ""
+
+#: admin/views/like-box.php:10
+msgid "Link to it so other folks can find out about it."
+msgstr ""
+
+#: admin/views/like-box.php:11
+msgid "Give it a 5 star rating on WordPress.org."
+msgstr ""
+
+#: admin/views/like-box.php:12
+msgid "Let other people know that it works with your WordPress setup."
+msgstr ""
+
+#: vendor/yoast/i18n-module/i18n-module.php:189
+msgid ""
+"As you can see, there is a translation of this plugin in %1$s. This "
+"translation is currently %3$d%% complete. We need your help to make it "
+"complete and to fix any errors. Please register at %4$s to help complete "
+"the translation to %1$s!"
+msgstr ""
+
+#: vendor/yoast/i18n-module/i18n-module.php:191
+msgid ""
+"You're using WordPress in %1$s. While %2$s has been translated to %1$s for "
+"%3$d%%, it's not been shipped with the plugin yet. You can help! Register "
+"at %4$s to help complete the translation to %1$s!"
+msgstr ""
+
+#: vendor/yoast/i18n-module/i18n-module.php:193
+msgid ""
+"You're using WordPress in a language we don't support yet. We'd love for "
+"%2$s to be translated in that language too, but unfortunately, it isn't "
+"right now. You can change that! Register at %4$s to help translate it!"
+msgstr ""
+
+#: vendor/yoast/i18n-module/i18n-module.php:213
+msgid "Translation of %s"
+msgstr ""
+
+#: vendor/yoast/i18n-module/i18n-module.php:218
+msgid "Register now &raquo;"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Granular Control for Yoast SEO"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://yoast.com/wordpress/plugins/granular-control/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin gives you granular control over some of the settings of Yoast "
+"SEO. If you want to keep using it, but disagree with how it handles things "
+"like canonicalization and pagination, this plugin is for you."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Team Yoast"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://yoast.com/"
+msgstr ""

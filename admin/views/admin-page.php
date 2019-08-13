@@ -1,0 +1,43 @@
+<?php
+/**
+ * Clicky for WordPress plugin file.
+ *
+ * @package Yoast/Clicky/View
+ */
+
+namespace Yoast_SEO_Granular_Control;
+
+?><div class="wrap">
+	<h2>
+		<?php esc_html_e( 'Yoast SEO Granular controls', 'yoast-seo-granular-control' ); ?>
+	</h2>
+
+	<form action="<?php echo esc_url( admin_url( 'options.php' ) ); ?>" method="post">
+		<?php
+		settings_fields( Options_Admin::$option_group );
+		?>
+		<div id="yoast_wrapper">
+			<h2 class="nav-tab-wrapper" id="yoast-tabs">
+				<a class="nav-tab" id="indexing-tab" href="#top#indexing"><?php esc_html_e( 'Indexing', 'yoast-seo-granular-control' ); ?></a>
+				<a class="nav-tab" id="xml-tab" href="#top#xml"><?php esc_html_e( 'XML Sitemaps', 'yoast-seo-granular-control' ); ?></a>
+			</h2>
+
+			<div class="tabwrapper">
+				<div id="indexing" class="yoast_tab">
+					<?php do_settings_sections( 'yoast-seo-granular-control-indexing' ); ?>
+				</div>
+				<div id="xml" class="yoast_tab">
+					<?php do_settings_sections( 'yoast-seo-granular-control-sitemaps' ); ?>
+				</div>
+			</div>
+			<?php
+			submit_button( __( 'Save settings', 'yoast-seo-granular-control' ) );
+			?>
+		</div>
+	</form>
+	<div id="yoast_sidebar">
+		<?php
+		$this->yoast_news();
+		?>
+	</div>
+</div>
