@@ -13,25 +13,17 @@ namespace Yoast_SEO_Granular_Control;
 class Frontend {
 
 	/**
-	 * Holds the plugin options.
-	 *
-	 * @var array
-	 */
-	private $options = array();
-
-	/**
 	 * Class constructor.
 	 */
 	public function __construct() {
-		$this->options = Options::instance()->get();
-
 		$integrations = array(
-			new Filter_Robots(),
+			new Indexing(),
+			new Schema(),
 			new XML_Sitemaps(),
 		);
 
 		foreach ( $integrations as $integration ) {
-			$integration->register_hooks( $this->options );
+			$integration->register_hooks();
 		}
 	}
 

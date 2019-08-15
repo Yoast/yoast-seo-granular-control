@@ -120,10 +120,10 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha512-ce5d3q03Ex0sy4R14722Rmt6MT07Ua+k4FwDfdcToYJcMKNtRVQvJ6JCAPdAmAnbRb6CsX6aYb9m96NGod9uTw==
 
-"@yoast/grunt-plugin-tasks@1.3.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@yoast/grunt-plugin-tasks/-/grunt-plugin-tasks-1.3.0.tgz#db40cd41cb331fa1a2e2c18db7a2fd7f754badb9"
-  integrity sha512-bI9XfAtNZY0xmWASvgKkadE3ad36eacEWRCQ5s7uy6oHJOKYwDQiXNDEYSUMPBTDLxuvP5L7lwpcCFkT6rltDg==
+"@yoast/grunt-plugin-tasks@1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@yoast/grunt-plugin-tasks/-/grunt-plugin-tasks-1.4.2.tgz#1c836c74214b93e16ff87dec700d82b4111a67c4"
+  integrity sha512-y1pzdsDbSz4nbJs4F0eIoWSIcBq5HrAow8AXxvHJB0VDZt2XenvtFzMtdtQ5pqkPak0Nu5qOQXQX67pfK8oXzA==
   dependencies:
     autoprefixer "^6.3.1"
     babel-eslint "^10.0.1"

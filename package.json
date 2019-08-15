@@ -3,7 +3,7 @@
   "description": "Development files for the Yoast SEO Granular Control plugin",
   "plugin": {
     "glotpress": "https://translate.yoast.com",
-    "glotpress_path": "clicky-wordpress-plugin",
+    "glotpress_path": "yoast-seo-granular-control",
     "textdomain": "yoast-seo-granular-control"
   },
   "pot": {
@@ -16,7 +16,7 @@
     "url": "https://github.com/Yoast/yoast-seo-granular-control"
   },
   "devDependencies": {
-    "@yoast/grunt-plugin-tasks": "1.3.0"
+    "@yoast/grunt-plugin-tasks": "1.4.2"
   },
   "yoast": {
     "pluginVersion": "0.1"

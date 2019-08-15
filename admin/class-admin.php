@@ -11,14 +11,6 @@ namespace Yoast_SEO_Granular_Control;
  * Backend Class the Yoast_SEO_Granular_Control plugin.
  */
 class Admin {
-
-	/**
-	 * This holds the plugins options.
-	 *
-	 * @var array
-	 */
-	public $options = array();
-
 	/**
 	 * Menu slug for WordPress admin.
 	 *
@@ -35,8 +27,6 @@ class Admin {
 	 * @link   https://codex.wordpress.org/Function_Reference/add_filter
 	 */
 	public function __construct() {
-		$this->options = Options::instance()->get();
-
 		add_filter( 'plugin_action_links', array( $this, 'add_action_link' ), 10, 2 );
 
 		add_action( 'publish_post', array( $this, 'insert_post' ) );

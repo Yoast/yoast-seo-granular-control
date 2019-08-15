@@ -14,9 +14,7 @@ interface Integration {
 	/**
 	 * Registers all hooks to WordPress.
 	 *
-	 * @param array $options The options for the plugin.
-	 *
 	 * @return void
 	 */
-	public function register_hooks( $options );
+	public function register_hooks();
 }

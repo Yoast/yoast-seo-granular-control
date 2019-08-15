@@ -19,6 +19,7 @@ namespace Yoast_SEO_Granular_Control;
 		<div id="yoast_wrapper">
 			<h2 class="nav-tab-wrapper" id="yoast-tabs">
 				<a class="nav-tab" id="indexing-tab" href="#top#indexing"><?php esc_html_e( 'Indexing', 'yoast-seo-granular-control' ); ?></a>
+                <a class="nav-tab" id="schema-tab" href="#top#schema"><?php esc_html_e( 'Schema', 'yoast-seo-granular-control' ); ?></a>
 				<a class="nav-tab" id="xml-tab" href="#top#xml"><?php esc_html_e( 'XML Sitemaps', 'yoast-seo-granular-control' ); ?></a>
 			</h2>
 
@@ -26,6 +27,9 @@ namespace Yoast_SEO_Granular_Control;
 				<div id="indexing" class="yoast_tab">
 					<?php do_settings_sections( 'yoast-seo-granular-control-indexing' ); ?>
 				</div>
+                <div id="schema" class="yoast_tab">
+					<?php do_settings_sections( 'yoast-seo-granular-control-schema' ); ?>
+                </div>
 				<div id="xml" class="yoast_tab">
 					<?php do_settings_sections( 'yoast-seo-granular-control-sitemaps' ); ?>
 				</div>

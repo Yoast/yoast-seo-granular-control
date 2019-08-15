@@ -12,25 +12,17 @@ namespace Yoast_SEO_Granular_Control;
  *
  * Filters the robots meta code based on settings.
  */
-class Filter_Robots implements Integration {
-	/**
-	 * Holds the plugin options.
-	 *
-	 * @var array
-	 */
-	private $options = array();
-
+class Indexing implements Integration {
 	/**
 	 * Registers all hooks to WordPress.
 	 *
-	 * @param array $options The options for the plugin.
-	 *
 	 * @return void
 	 */
-	public function register_hooks( $options ) {
-		$this->options = $options;
-
+	public function register_hooks() {
 		add_filter( 'wpseo_robots', [ $this, 'filter_robots' ] );
+		if ( Options::get( 'disable-rel-next-prev' ) ) {
+			add_filter( 'wpseo_disable_adjacent_rel_links', '__return_true' );
+		}
 	}
 
 	/**
@@ -41,7 +33,7 @@ class Filter_Robots implements Integration {
 	 * @return string The robots meta string.
 	 */
 	public function filter_robots( $robots_string ) {
-		if ( $this->options['noindex-paginated-archives'] && is_paged() ) {
+		if ( Options::get( 'noindex-paginated-archives' ) && is_paged() ) {
 			$robots = explode( ',', $robots_string );
 			if ( ( $key = array_search( 'index', $robots ) ) !== false ) {
 				unset( $robots[ $key ] );

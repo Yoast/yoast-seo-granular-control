@@ -16,9 +16,7 @@ class Admin_Page extends Admin {
 	 * Class constructor.
 	 */
 	public function __construct() {
-		$options_admin = new Options_Admin();
-
-		$this->options = $options_admin->get();
+		new Options_Admin();
 
 		add_action( 'admin_print_scripts', array( $this, 'config_page_scripts' ) );
 		add_action( 'admin_print_styles', array( $this, 'config_page_styles' ) );
@@ -82,7 +80,7 @@ class Admin_Page extends Admin {
 
 			$rss = '';
 			foreach ( $rss_items as $item ) {
-				$url  = preg_replace( '/#.*/', '', esc_url( $item->get_permalink(), $protocolls = null, 'display' ) );
+				$url  = preg_replace( '/#.*/', '', esc_url( $item->get_permalink(), $protocols = null, 'display' ) );
 				$rss .= '<li class="yoast">';
 				$rss .= '<a href="' . $url . '#utm_source=wpadmin&utm_medium=sidebarwidget&utm_term=newsitem&utm_campaign=clickywpplugin">' . $item->get_title() . '</a> ';
 				$rss .= '</li>';

@@ -18,12 +18,28 @@ class Options {
 	 * @var array
 	 */
 	public static $option_defaults = [
-		'noindex-paginated-archives' => false,
-		'xml-exclude-images'         => false,
-		'xml-exclude-lastmod'        => false,
-		'xml-exclude-prio'           => false,
-		'xml-exclude-posts'          => '',
-		'xml-exclude-terms'          => '',
+		'disable-rel-next-prev'         => false,
+		'noindex-paginated-archives'    => false,
+		'schema-disable'                => false,
+		'schema-disable-date-published' => false,
+		'schema-disable-date-modified'  => false,
+		'schema-disable-organization'   => false,
+		'schema-disable-website'        => false,
+		'schema-disable-webpage'        => false,
+		'schema-disable-breadcrumb'     => false,
+		'schema-disable-article'        => false,
+		'schema-disable-person'         => false,
+		'schema-disable-author'         => false,
+		'schema-disable-site-search'    => false,
+		'schema-disable-faq'            => false,
+		'schema-disable-howto'          => false,
+		'xml-disable-ping'              => false,
+		'xml-exclude-images'            => false,
+		'xml-exclude-lastmod'           => false,
+		'xml-exclude-prio'              => false,
+		'xml-exclude-posts'             => '',
+		'xml-exclude-terms'             => '',
+		'xml-number-items'              => 0,
 	];
 
 	/**
@@ -32,14 +48,28 @@ class Options {
 	 * @var array
 	 */
 	public static $option_var_types = [
-		//		'site_id'          => 'string',
-		//		'cookies_disable'  => 'bool',
-		'noindex-paginated-archives' => 'bool',
-		'xml-exclude-images'         => 'bool',
-		'xml-exclude-lastmod'        => 'bool',
-		'xml-exclude-prio'           => 'bool',
-		'xml-exclude-posts'          => 'string',
-		'xml-exclude-terms'          => 'string',
+		'disable-rel-next-prev'         => 'bool',
+		'noindex-paginated-archives'    => 'bool',
+		'schema-disable'                => 'bool',
+		'schema-disable-date-published' => 'bool',
+		'schema-disable-date-modified'  => 'bool',
+		'schema-disable-organization'   => 'bool',
+		'schema-disable-website'        => 'bool',
+		'schema-disable-webpage'        => 'bool',
+		'schema-disable-breadcrumb'     => 'bool',
+		'schema-disable-article'        => 'bool',
+		'schema-disable-person'         => 'bool',
+		'schema-disable-author'         => 'bool',
+		'schema-disable-site-search'    => 'bool',
+		'schema-disable-faq'            => 'bool',
+		'schema-disable-howto'          => 'bool',
+		'xml-disable-ping'              => 'bool',
+		'xml-exclude-images'            => 'bool',
+		'xml-exclude-lastmod'           => 'bool',
+		'xml-exclude-prio'              => 'bool',
+		'xml-exclude-posts'             => 'string',
+		'xml-exclude-terms'             => 'string',
+		'xml-number-items'              => 'int',
 	];
 
 	/**
@@ -61,7 +91,7 @@ class Options {
 	 *
 	 * @var array
 	 */
-	public $options = array();
+	public static $options = array();
 
 	/**
 	 * Class constructor.
@@ -76,30 +106,36 @@ class Options {
 	 *
 	 * If already set: trim some option. Otherwise load defaults.
 	 */
-	private function load_options() {
+	private static function load_options() {
 		$options = get_option( self::$option_name );
-		if ( ! is_array( $options ) ) {
-			$this->options = self::$option_defaults;
-			update_option( self::$option_name, $this->options );
-		} else {
-			$this->options = array_merge( self::$option_defaults, $options );
+		if ( is_array( $options ) ) {
+			self::$options = array_merge( self::$option_defaults, $options );
+
+			return;
 		}
+
+		self::$options = self::$option_defaults;
+		update_option( self::$option_name, self::$options );
 	}
 
 	/**
 	 * Forces all options to be of the type we expect them to be of.
 	 */
 	private function sanitize_options() {
-		foreach ( $this->options as $key => $value ) {
+		foreach ( self::$options as $key => $value ) {
 			if ( ! isset( self::$option_var_types[ $key ] ) ) {
-				unset( $this->options[ $key ] );
+				unset( self::$options[ $key ] );
 			}
 			switch ( self::$option_var_types[ $key ] ) {
 				case 'string':
-					$this->options[ $key ] = (string) $value;
+					self::$options[ $key ] = (string) $value;
 					break;
 				case 'bool':
-					$this->options[ $key ] = (bool) $value;
+					self::$options[ $key ] = (bool) $value;
+					break;
+				case 'int':
+					self::$options[ $key ] = (int) $value;
+					break;
 			}
 		}
 	}
@@ -120,9 +156,15 @@ class Options {
 	/**
 	 * Returns the Yoast_SEO_Granular_Control options.
 	 *
-	 * @return array
+	 * @param string $key The option to retrieve.
+	 *
+	 * @return mixed The option.
 	 */
-	public function get() {
-		return $this->options;
+	public static function get( $key ) {
+		if ( self::$options === array() ) {
+			self::load_options();
+		}
+
+		return self::$options[ $key ];
 	}
 }

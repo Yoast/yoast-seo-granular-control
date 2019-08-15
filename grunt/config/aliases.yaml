@@ -1,5 +1,9 @@
 # Grunt aliases
 ---
+# Build the project
+build:
+  - 'build:css'
+  - 'build:js'
 # Build a distribution zip file
 'artifact':
   - 'shell:composer-install-production'

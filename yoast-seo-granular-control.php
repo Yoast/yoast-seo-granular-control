@@ -29,12 +29,8 @@ define( 'YSEO_GC_PLUGIN_VERSION', '0.1' );
 define( 'YSEO_GC_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'YSEO_GC_DIR_URL', plugin_dir_url( __FILE__ ) );
 
-if ( file_exists( YSEO_GC_DIR_PATH . 'vendor/autoload_52.php' ) ) {
-	require YSEO_GC_DIR_PATH . 'vendor/autoload_52.php';
-}
-
 /**
- * Class Yoast Clicky base class.
+ * Class Yoast SEO Granular Control base class.
  */
 class Control {
 
@@ -45,6 +41,8 @@ class Control {
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			return;
 		}
+
+		require __DIR__ . '/vendor/autoload.php';
 
 		add_action( 'plugins_loaded', array( $this, 'init' ) );
 	}
