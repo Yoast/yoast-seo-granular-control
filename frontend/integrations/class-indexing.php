@@ -20,6 +20,9 @@ class Indexing implements Integration {
 	 */
 	public function register_hooks() {
 		add_filter( 'wpseo_robots', [ $this, 'filter_robots' ] );
+		add_action( 'template_redirect', [ $this, 'maybe_noindex_feeds' ] );
+		add_filter( 'wpseo_canonical', [ $this, 'force_canonical_protocol' ] );
+
 		if ( Options::get( 'disable-rel-next-prev' ) ) {
 			add_filter( 'wpseo_disable_adjacent_rel_links', '__return_true' );
 		}
@@ -44,5 +47,29 @@ class Indexing implements Integration {
 		}
 
 		return $robots_string;
+	}
+
+	/**
+	 * Noindexes RSS feeds when necessary.
+	 */
+	public function maybe_noindex_feeds() {
+		if ( is_feed() && Options::get( 'noindex-feeds' ) ) {
+			header( 'X-Robots-Tag: noindex, follow', true );
+		}
+	}
+
+	/**
+	 * Forces the protocol on all canonical URLs to either http or https.
+	 *
+	 * @param string $canonical The canonical URL.
+	 *
+	 * @return string $canonical The canonical URL.
+	 */
+	public function force_canonical_protocol( $canonical ) {
+		if ( Options::get( 'force-canonical' ) !== 'default' ) {
+			$canonical = preg_replace( '/^https?/', Options::get( 'force-canonical' ), $canonical );
+		}
+
+		return $canonical;
 	}
 }

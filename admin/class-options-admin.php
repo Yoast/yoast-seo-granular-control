@@ -65,6 +65,9 @@ class Options_Admin extends Options {
 	 * @return array
 	 */
 	public function sanitize_options_on_save( $new_options ) {
+//		print_r( $_POST );
+//		die;
+
 		if ( isset( $_POST['yst_active_tab'] ) ) {
 			set_transient( 'yst_active_tab', $_POST['yst_active_tab'] );
 		}
@@ -106,7 +109,23 @@ class Options_Admin extends Options {
 	 * @param array $args Arguments to get data from.
 	 */
 	public function input_text( $args ) {
-		echo '<input type="text" class="text" name="' . esc_attr( $args['name'] ) . '" value="' . esc_attr( $args['value'] ) . '"/>';
+		echo '<input type="text" class="text" name="yseo_granular[' . esc_attr( $args['name'] ) . ']" value="' . esc_attr( $args['value'] ) . '"/>';
+		$this->input_desc( $args );
+	}
+
+	/**
+	 * Create a text input.
+	 *
+	 * @param array $args Arguments to get data from.
+	 */
+	public function input_radio( $args ) {
+		foreach( $args['values'] as $value => $label ) {
+			$checked = '';
+			if ( $value === $args['value'] ) {
+				$checked = 'checked';
+			}
+			echo '<input type="radio" name="yseo_granular[' . esc_attr( $args['name'] ) . ']" id="' . esc_attr( $args['name'].'_'.$value ) . '" value="' . esc_attr( $value ) . '" '.$checked.'/> <label for="' . esc_attr( $args['name'].'_'.$value ) . '">' . $label . '</label><br/>';
+		}
 		$this->input_desc( $args );
 	}
 
@@ -116,7 +135,7 @@ class Options_Admin extends Options {
 	 * @param array $args Arguments to get data from.
 	 */
 	public function input_number( $args ) {
-		echo '<input type="number" class="text" name="' . esc_attr( $args['name'] ) . '" value="' . esc_attr( $args['value'] ) . '"/>';
+		echo '<input type="number" class="text" name="yseo_granular[' . esc_attr( $args['name'] ) . ']" value="' . esc_attr( $args['value'] ) . '"/>';
 		$this->input_desc( $args );
 	}
 

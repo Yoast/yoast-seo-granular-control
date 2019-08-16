@@ -35,6 +35,7 @@ class Options_Indexing extends Options_Admin implements Options_Section {
 
 		$settings = [
 			'noindex-paginated-archives' => __( 'Noindex paginated archives', 'yoast-seo-granular-control' ),
+			'noindex-feeds'              => __( 'Noindex RSS feeds', 'yoast-seo-granular-control' ),
 			'disable-rel-next-prev'      => __( 'Disable rel="next"/rel="prev"', 'yoast-seo-granular-control' ),
 		];
 		foreach ( $settings as $key => $label ) {
@@ -50,6 +51,24 @@ class Options_Indexing extends Options_Admin implements Options_Section {
 				)
 			);
 		}
+
+		$key = 'force-canonical';
+		add_settings_field(
+			$key,
+			__( 'Force canonical to a protocol', 'yoast-seo-granular-control' ),
+			array( $this, 'input_radio' ),
+			$this->page,
+			$this->section,
+			array(
+				'name'   => $key,
+				'value'  => Options::get( $key ),
+				'values' => [
+					'default' => __( 'Leave default', 'yoast-seo-granular-control' ),
+					'http'    => 'HTTP',
+					'https'   => 'HTTPS',
+				],
+			)
+		);
 	}
 
 	/**

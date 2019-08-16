@@ -19,7 +19,9 @@ class Options {
 	 */
 	public static $option_defaults = [
 		'disable-rel-next-prev'         => false,
+		'force-canonical'               => 'default',
 		'noindex-paginated-archives'    => false,
+		'noindex-feeds'                 => false,
 		'schema-disable'                => false,
 		'schema-disable-date-published' => false,
 		'schema-disable-date-modified'  => false,
@@ -48,7 +50,9 @@ class Options {
 	 */
 	public static $option_var_types = [
 		'disable-rel-next-prev'         => 'bool',
+		'force-canonical'               => 'string',
 		'noindex-paginated-archives'    => 'bool',
+		'noindex-feeds'                 => 'bool',
 		'schema-disable'                => 'bool',
 		'schema-disable-date-published' => 'bool',
 		'schema-disable-date-modified'  => 'bool',
