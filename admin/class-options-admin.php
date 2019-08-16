@@ -65,6 +65,9 @@ class Options_Admin extends Options {
 	 * @return array
 	 */
 	public function sanitize_options_on_save( $new_options ) {
+		if ( isset( $_POST['yst_active_tab'] ) ) {
+			set_transient( 'yst_active_tab', $_POST['yst_active_tab'] );
+		}
 		foreach ( $new_options as $key => $value ) {
 			switch ( self::$option_var_types[ $key ] ) {
 				case 'string':

@@ -20,5 +20,6 @@
   },
   "yoast": {
     "pluginVersion": "0.1"
-  }
+  },
+  "dependencies": {}
 }

@@ -35,7 +35,6 @@ class Options_XML_Sitemap extends Options_Admin implements Options_Section {
 		$exclude_fields = [
 			'xml-exclude-images'  => __( 'Exclude images', 'yoast-seo-granular-control' ),
 			'xml-exclude-lastmod' => __( 'Exclude lastmod field from XML sitemaps', 'yoast-seo-granular-control' ),
-			'xml-exclude-prio'    => __( 'Exclude prio field from XML sitemaps', 'yoast-seo-granular-control' ),
 			'xml-disable-ping'    => __( 'Disable automatic ping of search engines on update', 'yoast-seo-granular-control' ),
 		];
 		foreach ( $exclude_fields as $key => $label ) {
@@ -73,8 +72,9 @@ class Options_XML_Sitemap extends Options_Admin implements Options_Section {
 			);
 		}
 
+		$key = 'xml-number-items';
 		add_settings_field(
-			'xml-number-items',
+			$key,
 			__( 'Maximum number of items in an XML sitemap', 'yoast-seo-granular-control' ),
 			[ $this, 'input_number' ],
 			$this->page,

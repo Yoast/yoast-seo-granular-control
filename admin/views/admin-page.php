@@ -10,9 +10,11 @@ namespace Yoast_SEO_Granular_Control;
 ?><div class="wrap">
 	<h2>
 		<?php esc_html_e( 'Yoast SEO Granular controls', 'yoast-seo-granular-control' ); ?>
+        <?php settings_errors(); ?>
 	</h2>
 
 	<form action="<?php echo esc_url( admin_url( 'options.php' ) ); ?>" method="post">
+        <input type="hidden" name="yst_active_tab" id="yst_active_tab" value="<?php echo get_transient( 'yst_active_tab' ); ?>" />
 		<?php
 		settings_fields( Options_Admin::$option_group );
 		?>
