@@ -36,9 +36,6 @@ class Admin {
 		}
 	}
 
-	public function unhook_hooks() {
-	}
-
 	/**
 	 * Initialize needed actions.
 	 */

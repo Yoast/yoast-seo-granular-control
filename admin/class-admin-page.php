@@ -69,28 +69,33 @@ class Admin_Page extends Admin {
 	 * @param string $extra_links Additional links to add to the output, after the RSS subscribe link.
 	 */
 	private function rss_news( $feed, $title, $extra_links = '' ) {
-		include_once ABSPATH . WPINC . '/feed.php';
-		$rss = fetch_feed( $feed );
+		$content = get_transient( 'yoast-seo-granular-feed' );
+		if ( empty( $content ) ) {
+			include_once ABSPATH . WPINC . '/feed.php';
+			$rss = fetch_feed( $feed );
 
-		if ( is_wp_error( $rss ) ) {
-			$rss = '<li class="yoast">' . __( 'No news items, feed might be broken...', 'yoast-seo-granular-control' ) . '</li>';
-		}
-		else {
-			$rss_items = $rss->get_items( 0, $rss->get_item_quantity( 3 ) );
-
-			$rss = '';
-			foreach ( $rss_items as $item ) {
-				$url  = preg_replace( '/#.*/', '', esc_url( $item->get_permalink(), $protocols = null, 'display' ) );
-				$rss .= '<li class="yoast">';
-				$rss .= '<a href="' . $url . '#utm_source=wpadmin&utm_medium=sidebarwidget&utm_term=newsitem&utm_campaign=clickywpplugin">' . $item->get_title() . '</a> ';
-				$rss .= '</li>';
+			if ( is_wp_error( $rss ) ) {
+				$rss = '<li class="yoast">' . __( 'No news items, feed might be broken...', 'yoast-seo-granular-control' ) . '</li>';
 			}
-		}
+			else {
+				$rss_items = $rss->get_items( 0, $rss->get_item_quantity( 3 ) );
 
-		$content  = '<ul>';
-		$content .= $rss;
-		$content .= $extra_links;
-		$content .= '</ul>';
+				$rss = '';
+				foreach ( $rss_items as $item ) {
+					$url  = preg_replace( '/#.*/', '', esc_url( $item->get_permalink(), $protocols = null, 'display' ) );
+					$rss .= '<li class="yoast">';
+					$rss .= '<a href="' . $url . '#utm_source=wpadmin&utm_medium=sidebarwidget&utm_term=newsitem&utm_campaign=clickywpplugin">' . $item->get_title() . '</a> ';
+					$rss .= '</li>';
+				}
+			}
+
+			$content  = '<ul>';
+			$content .= $rss;
+			$content .= $extra_links;
+			$content .= '</ul>';
+
+			set_transient( 'yoast-seo-granular-feed', $content );
+		}
 
 		$this->box( $title, $content );
 	}
