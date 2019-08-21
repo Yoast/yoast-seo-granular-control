@@ -17,18 +17,15 @@ class Options_Schema extends Options_Admin implements Options_Section {
 	public $page = 'yoast-seo-granular-control-schema';
 
 	/**
-	 * @var string
-	 */
-	public $section = 'schema-settings';
-
-	/**
 	 * Register the Schema settings.
 	 */
 	public function register() {
+		$section = 'schema-settings';
+
 		add_settings_section(
-			$this->section,
-			__( 'Schema settings', 'yoast-seo-granular-control' ),
-			[ $this, 'intro' ],
+			$section,
+			__( 'General Schema.org settings', 'yoast-seo-granular-control' ),
+			[ $this, 'general_settings_intro' ],
 			$this->page
 		);
 
@@ -36,6 +33,24 @@ class Options_Schema extends Options_Admin implements Options_Section {
 			'schema-disable'                => __( 'Disable schema output', 'yoast-seo-granular-control' ),
 			'schema-disable-date-published' => __( 'Remove date published', 'yoast-seo-granular-control' ),
 			'schema-disable-date-modified'  => __( 'Remove date modified', 'yoast-seo-granular-control' ),
+		];
+		$this->checkbox_list( $disable_parts, $section );
+
+		$this->section_disable_pieces();
+
+	}
+
+	private function section_disable_pieces() {
+		$section = 'schema-settings-disable-pieces';
+
+		add_settings_section(
+			$section,
+			__( 'Disable specific Schema.org pieces', 'yoast-seo-granular-control' ),
+			[ $this, 'disable_pieces_intro' ],
+			$this->page
+		);
+
+		$disable_parts = [
 			'schema-disable-organization'   => __( 'Disable Organization Schema output', 'yoast-seo-granular-control' ),
 			'schema-disable-website'        => __( 'Disable WebSite Schema output', 'yoast-seo-granular-control' ),
 			'schema-disable-webpage'        => __( 'Disable WebPage Schema output', 'yoast-seo-granular-control' ),
@@ -47,30 +62,21 @@ class Options_Schema extends Options_Admin implements Options_Section {
 			'schema-disable-faq'            => __( 'Disable FAQ Schema output', 'yoast-seo-granular-control' ),
 			'schema-disable-howto'          => __( 'Disable HowTo Schema output', 'yoast-seo-granular-control' ),
 		];
-		foreach ( $disable_parts as $key => $label ) {
-			add_settings_field(
-				$key,
-				$label,
-				array( $this, 'input_checkbox' ),
-				$this->page,
-				$this->section,
-				array(
-					'name'  => $key,
-					'value' => Options::get( $key ),
-				)
-			);
-		}
-
+		$this->checkbox_list( $disable_parts, $section );
 
 	}
 
 	/**
 	 * Intro for the XML sitemap settings screen.
 	 */
-	public function intro() {
-		echo '<p>';
-		esc_html_e( 'Change the settings for Yoast SEO\'s extensive Schema output.', 'yoast-seo-granular-control' );
-		echo '</p>';
+	public function general_settings_intro() {
+		$this->intro_helper( __( 'Change the settings for Yoast SEO\'s extensive Schema output.', 'yoast-seo-granular-control' ) );
 	}
 
+	/**
+	 * This section allows disabling specific pieces from the Yoast SEO Schema output.
+	 */
+	public function disable_pieces_intro() {
+		$this->intro_helper( __( 'Disable specific pieces from the Yoast SEO Schema ouput.', 'yoast-seo-granular-control' ) );
+	}
 }

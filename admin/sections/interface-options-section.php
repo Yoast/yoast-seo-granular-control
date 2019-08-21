@@ -17,11 +17,4 @@ interface Options_Section {
 	 * @return void
 	 */
 	public function register();
-
-	/**
-	 * Outputs the sections intro.
-	 *
-	 * @return void
-	 */
-	public function intro();
 }

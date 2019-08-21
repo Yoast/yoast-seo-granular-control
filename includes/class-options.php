@@ -18,29 +18,38 @@ class Options {
 	 * @var array
 	 */
 	public static $option_defaults = [
-		'disable-rel-next-prev'         => false,
-		'force-canonical'               => 'default',
-		'noindex-paginated-archives'    => false,
-		'noindex-feeds'                 => false,
-		'schema-disable'                => false,
-		'schema-disable-date-published' => false,
-		'schema-disable-date-modified'  => false,
-		'schema-disable-organization'   => false,
-		'schema-disable-website'        => false,
-		'schema-disable-webpage'        => false,
-		'schema-disable-breadcrumb'     => false,
-		'schema-disable-article'        => false,
-		'schema-disable-person'         => false,
-		'schema-disable-author'         => false,
-		'schema-disable-site-search'    => false,
-		'schema-disable-faq'            => false,
-		'schema-disable-howto'          => false,
-		'xml-disable-ping'              => false,
-		'xml-exclude-images'            => false,
-		'xml-exclude-lastmod'           => false,
-		'xml-exclude-posts'             => '',
-		'xml-exclude-terms'             => '',
-		'xml-number-items'              => 0,
+		'disable-archives'               => [],
+		'disable-structured-data-blocks' => false,
+		'disable-rel-next-prev'          => false,
+		'force-canonical'                => 'default',
+		'homepage-noindex'               => false,
+		'homepage-nofollow'              => false,
+		'homepage-noarchive'             => false,
+		'homepage-nosnippet'             => false,
+		'noindex-paginated-archives'     => false,
+		'noindex-feeds'                  => false,
+		'noindex-archive-feeds'          => false,
+		'noindex-comment-feeds'          => false,
+		'schema-disable'                 => false,
+		'schema-disable-date-published'  => false,
+		'schema-disable-date-modified'   => false,
+		'schema-disable-organization'    => false,
+		'schema-disable-website'         => false,
+		'schema-disable-webpage'         => false,
+		'schema-disable-breadcrumb'      => false,
+		'schema-disable-article'         => false,
+		'schema-disable-person'          => false,
+		'schema-disable-author'          => false,
+		'schema-disable-site-search'     => false,
+		'schema-disable-faq'             => false,
+		'schema-disable-howto'           => false,
+		'xml-disable-ping'               => false,
+		'xml-exclude-images'             => false,
+		'xml-exclude-lastmod'            => false,
+		'xml-exclude-posts'              => '',
+		'xml-exclude-terms'              => '',
+		'xml-number-items'               => 0,
+		'xml-exclude-roles'              => [],
 	];
 
 	/**
@@ -49,29 +58,38 @@ class Options {
 	 * @var array
 	 */
 	public static $option_var_types = [
-		'disable-rel-next-prev'         => 'bool',
-		'force-canonical'               => 'string',
-		'noindex-paginated-archives'    => 'bool',
-		'noindex-feeds'                 => 'bool',
-		'schema-disable'                => 'bool',
-		'schema-disable-date-published' => 'bool',
-		'schema-disable-date-modified'  => 'bool',
-		'schema-disable-organization'   => 'bool',
-		'schema-disable-website'        => 'bool',
-		'schema-disable-webpage'        => 'bool',
-		'schema-disable-breadcrumb'     => 'bool',
-		'schema-disable-article'        => 'bool',
-		'schema-disable-person'         => 'bool',
-		'schema-disable-author'         => 'bool',
-		'schema-disable-site-search'    => 'bool',
-		'schema-disable-faq'            => 'bool',
-		'schema-disable-howto'          => 'bool',
-		'xml-disable-ping'              => 'bool',
-		'xml-exclude-images'            => 'bool',
-		'xml-exclude-lastmod'           => 'bool',
-		'xml-exclude-posts'             => 'string',
-		'xml-exclude-terms'             => 'string',
-		'xml-number-items'              => 'int',
+		'disable-archives'               => 'array',
+		'disable-structured-data-blocks' => 'bool',
+		'disable-rel-next-prev'          => 'bool',
+		'force-canonical'                => 'string',
+		'homepage-noindex'               => 'bool',
+		'homepage-nofollow'              => 'bool',
+		'homepage-noarchive'             => 'bool',
+		'homepage-nosnippet'             => 'bool',
+		'noindex-paginated-archives'     => 'bool',
+		'noindex-feeds'                  => 'bool',
+		'noindex-archive-feeds'          => 'bool',
+		'noindex-comment-feeds'          => 'bool',
+		'schema-disable'                 => 'bool',
+		'schema-disable-date-published'  => 'bool',
+		'schema-disable-date-modified'   => 'bool',
+		'schema-disable-organization'    => 'bool',
+		'schema-disable-website'         => 'bool',
+		'schema-disable-webpage'         => 'bool',
+		'schema-disable-breadcrumb'      => 'bool',
+		'schema-disable-article'         => 'bool',
+		'schema-disable-person'          => 'bool',
+		'schema-disable-author'          => 'bool',
+		'schema-disable-site-search'     => 'bool',
+		'schema-disable-faq'             => 'bool',
+		'schema-disable-howto'           => 'bool',
+		'xml-disable-ping'               => 'bool',
+		'xml-exclude-images'             => 'bool',
+		'xml-exclude-lastmod'            => 'bool',
+		'xml-exclude-posts'              => 'string',
+		'xml-exclude-terms'              => 'string',
+		'xml-number-items'               => 'int',
+		'xml-exclude-roles'              => 'array',
 	];
 
 	/**
@@ -129,14 +147,19 @@ class Options {
 				unset( self::$options[ $key ] );
 			}
 			switch ( self::$option_var_types[ $key ] ) {
-				case 'string':
-					self::$options[ $key ] = (string) $value;
+				case 'array':
+					if ( ! is_array( self::$options[ $key ] ) ) {
+						self::$options[ $key ] = [];
+					}
 					break;
 				case 'bool':
 					self::$options[ $key ] = (bool) $value;
 					break;
 				case 'int':
 					self::$options[ $key ] = (int) $value;
+					break;
+				case 'string':
+					self::$options[ $key ] = (string) $value;
 					break;
 			}
 		}

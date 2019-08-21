@@ -25,6 +25,7 @@ class XML_Sitemaps implements Integration {
 		add_filter( 'wpseo_sitemap_entry', [ $this, 'filter_entry' ] );
 		add_filter( 'wpseo_sitemap_entries_per_page', [ $this, 'filter_entries_per_page' ] );
 		add_filter( 'wpseo_allow_xml_sitemap_ping', [ $this, 'filter_ping' ] );
+		add_filter( 'wpseo_sitemap_exclude_author', [ $this, 'filter_users' ] );
 	}
 
 	/**
@@ -111,5 +112,26 @@ class XML_Sitemaps implements Integration {
 		}
 
 		return $allow_ping;
+	}
+
+	/**
+	 * Filters the users that'll show up in the XML sitemap.
+	 *
+	 * @param \WP_User[] $users Array of users for the XML sitemap.
+	 *
+	 * @return \WP_User[] $users Array of users for the XML sitemap.
+	 */
+	public function filter_users( $users ) {
+		$roles = array_keys( Options::get( 'xml-exclude-roles' ) );
+		if ( count( $roles ) > 0 ) {
+			$exclude_user_ids = wp_list_pluck( get_users( [ 'role__in' => $roles, 'fields' => [ 'ID' ] ] ), 'ID' );
+			foreach ( $users as $key => $user ) {
+				if ( in_array( $user->ID, $exclude_user_ids ) ) {
+					unset( $users[ $key ] );
+				}
+			}
+		}
+
+		return $users;
 	}
 }

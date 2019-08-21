@@ -38,6 +38,7 @@ class Options_Admin extends Options {
 			new Options_Indexing(),
 			new Options_Schema(),
 			new Options_XML_Sitemap(),
+			new Options_General(),
 		);
 
 		foreach ( $sections as $section ) {
@@ -65,8 +66,8 @@ class Options_Admin extends Options {
 	 * @return array
 	 */
 	public function sanitize_options_on_save( $new_options ) {
-//		print_r( $_POST );
-//		die;
+		//		print_r( $_POST );
+		//		die;
 
 		if ( isset( $_POST['yst_active_tab'] ) ) {
 			set_transient( 'yst_active_tab', $_POST['yst_active_tab'] );
@@ -85,6 +86,11 @@ class Options_Admin extends Options {
 					break;
 				case 'int':
 					$new_options[ $key ] = (int) $new_options[ $key ];
+					break;
+				case 'array':
+					if ( ! is_array( $new_options[ $key ] ) ) {
+						$new_options[ $key ] = (array) $new_options[ $key ];
+					}
 					break;
 			}
 		}
@@ -109,7 +115,7 @@ class Options_Admin extends Options {
 	 * @param array $args Arguments to get data from.
 	 */
 	public function input_text( $args ) {
-		echo '<input type="text" class="text" name="yseo_granular[' . esc_attr( $args['name'] ) . ']" value="' . esc_attr( $args['value'] ) . '"/>';
+		echo '<input id="' . $args['name'] . '" type="text" class="text" name="yseo_granular[' . esc_attr( $args['name'] ) . ']" value="' . esc_attr( $args['value'] ) . '"/>';
 		$this->input_desc( $args );
 	}
 
@@ -119,12 +125,12 @@ class Options_Admin extends Options {
 	 * @param array $args Arguments to get data from.
 	 */
 	public function input_radio( $args ) {
-		foreach( $args['values'] as $value => $label ) {
+		foreach ( $args['values'] as $value => $label ) {
 			$checked = '';
 			if ( $value === $args['value'] ) {
 				$checked = 'checked';
 			}
-			echo '<input type="radio" name="yseo_granular[' . esc_attr( $args['name'] ) . ']" id="' . esc_attr( $args['name'].'_'.$value ) . '" value="' . esc_attr( $value ) . '" '.$checked.'/> <label for="' . esc_attr( $args['name'].'_'.$value ) . '">' . $label . '</label><br/>';
+			echo '<input type="radio" name="yseo_granular[' . esc_attr( $args['name'] ) . ']" id="' . esc_attr( $args['name'] . '_' . $value ) . '" value="' . esc_attr( $value ) . '" ' . $checked . '/> <label for="' . esc_attr( $args['name'] . '_' . $value ) . '">' . $label . '</label><br/>';
 		}
 		$this->input_desc( $args );
 	}
@@ -135,7 +141,7 @@ class Options_Admin extends Options {
 	 * @param array $args Arguments to get data from.
 	 */
 	public function input_number( $args ) {
-		echo '<input type="number" class="text" name="yseo_granular[' . esc_attr( $args['name'] ) . ']" value="' . esc_attr( $args['value'] ) . '"/>';
+		echo '<input id="' . $args['name'] . '" type="number" class="text" name="yseo_granular[' . esc_attr( $args['name'] ) . ']" value="' . esc_attr( $args['value'] ) . '"/>';
 		$this->input_desc( $args );
 	}
 
@@ -147,7 +153,69 @@ class Options_Admin extends Options {
 	public function input_checkbox( $args ) {
 		$val    = Options::get( $args['name'] );
 		$option = isset( $val ) ? $val : false;
-		echo '<input class="checkbox" type="checkbox" ' . checked( $option, true, false ) . ' name="yseo_granular[' . esc_attr( $args['name'] ) . ']"/>';
+		echo '<input id="' . $args['name'] . '" class="checkbox" type="checkbox" ' . checked( $option, true, false ) . ' name="yseo_granular[' . esc_attr( $args['name'] ) . ']"/>';
 		$this->input_desc( $args );
+	}
+
+	/**
+	 * Create a checkbox input.
+	 *
+	 * @param array $args Arguments to get data from.
+	 */
+	public function input_checkbox_array( $args ) {
+		$val    = Options::get( $args['name'] );
+		$option = ( isset( $val[ $args['value'] ] ) && $val[ $args['value'] ] === 'on' );
+		echo '<input id="' . $args['id'] . '" class="checkbox array" type="checkbox" ' . checked( $option, true, false ) . ' name="yseo_granular[' . esc_attr( $args['name'] ) . '][' . esc_attr( $args['value'] ) . ']"/>';
+		$this->input_desc( $args );
+	}
+
+	/**
+	 * Generates a list of checkboxes based on an array.
+	 *
+	 * @param array  $checkboxes The checkboxes to list.
+	 * @param string $section    The current section.
+	 *
+	 * @return void
+	 */
+	protected function checkbox_list( $checkboxes, $section ) {
+		foreach ( $checkboxes as $key => $label ) {
+			add_settings_field(
+				$key,
+				'<label for="' . $key . '">' . $label . '</label>',
+				array( $this, 'input_checkbox' ),
+				$this->page,
+				$section,
+				array(
+					'name'  => $key,
+					'value' => Options::get( $key ),
+				)
+			);
+		}
+	}
+
+	/**
+	 * Returns all the currently existing WordPress Roles.
+	 *
+	 * @return string[]
+	 */
+	protected function get_role_names() {
+		global $wp_roles;
+
+		if ( ! isset( $wp_roles ) ) {
+			$wp_roles = new \WP_Roles();
+		}
+
+		return $wp_roles->get_names();
+	}
+
+	/**
+	 * Function to output a section intro.
+	 *
+	 * @param string $text The text to output.
+	 */
+	protected function intro_helper( $text ) {
+		echo '<p>';
+		echo esc_html( $text );
+		echo '</p>';
 	}
 }

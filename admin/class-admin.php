@@ -31,6 +31,12 @@ class Admin {
 
 		add_action( 'publish_post', array( $this, 'insert_post' ) );
 		add_action( 'admin_menu', array( $this, 'admin_init' ) );
+		if ( Options::get( 'disable-structured-data-blocks' ) ) {
+			add_filter( 'wpseo_enable_structured_data_blocks', '__return_false' );
+		}
+	}
+
+	public function unhook_hooks() {
 	}
 
 	/**
