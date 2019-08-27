@@ -14,7 +14,7 @@ module.exports = {
 					"languages/**",
 					"vendor/**",
 					"index.php",
-					"readme.txt",
+					"readme.md",
 					"yoast-seo-granular-control.php",
 					"!vendor/bin/**",
 					"!vendor/composer/installed.json",

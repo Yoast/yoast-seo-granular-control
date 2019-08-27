@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Granular Control for Yoast SEO 0.1\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/yoast/yoast-seo-granular-control/issues\n"
-"POT-Creation-Date: 2019-08-16 13:08:07+00:00\n"
+"POT-Creation-Date: 2019-08-21 11:35:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,215 +25,299 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: admin/class-admin-page.php:76 artifact/admin/class-admin-page.php:76
+#: admin/class-admin-page.php:78 artifact/admin/class-admin-page.php:76
 msgid "No news items, feed might be broken..."
 msgstr ""
 
-#: admin/class-admin-page.php:102 artifact/admin/class-admin-page.php:102
+#: admin/class-admin-page.php:107 artifact/admin/class-admin-page.php:102
 msgid "Like Yoast on Facebook"
 msgstr ""
 
-#: admin/class-admin-page.php:103 artifact/admin/class-admin-page.php:103
+#: admin/class-admin-page.php:108 artifact/admin/class-admin-page.php:103
 msgid "Follow Yoast on Twitter"
 msgstr ""
 
-#: admin/class-admin-page.php:104 artifact/admin/class-admin-page.php:104
+#: admin/class-admin-page.php:109 artifact/admin/class-admin-page.php:104
 msgid "Subscribe by email"
 msgstr ""
 
-#: admin/class-admin-page.php:106 artifact/admin/class-admin-page.php:106
+#: admin/class-admin-page.php:111 artifact/admin/class-admin-page.php:106
 msgid "Latest news from Yoast"
 msgstr ""
 
-#: admin/class-admin.php:52 artifact/admin/class-admin.php:52
+#: admin/class-admin.php:55 artifact/admin/class-admin.php:52
 msgid "Yoast SEO Granular Control"
 msgstr ""
 
-#: admin/class-admin.php:53 artifact/admin/class-admin.php:53
+#: admin/class-admin.php:56 artifact/admin/class-admin.php:53
 msgid "Granular Control"
 msgstr ""
 
-#: admin/class-admin.php:84 artifact/admin/class-admin.php:84
+#: admin/class-admin.php:87 artifact/admin/class-admin.php:84
 msgid "Settings"
 msgstr ""
 
-#: admin/sections/class-options-indexing.php:31
-#: artifact/admin/sections/class-options-indexing.php:31
-msgid "Indexing settings"
+#: admin/sections/class-options-general.php:37
+msgid "Gutenberg"
 msgstr ""
 
-#: admin/sections/class-options-indexing.php:37
+#: admin/sections/class-options-general.php:47
+#. Translators: %s becomes the name of the role.
+msgid "Disable Gutenberg blocks"
+msgstr ""
+
+#: admin/sections/class-options-general.php:67
+msgid "Disable user archives by role"
+msgstr ""
+
+#: admin/sections/class-options-general.php:97
+#. Translators: %s becomes the name of the role.
+msgid "Change how Yoast SEO integrates with the Gutenberg editor."
+msgstr ""
+
+#: admin/sections/class-options-general.php:104
+msgid "Disable user archives based on the user's role:"
+msgstr ""
+
+#: admin/sections/class-options-indexing.php:36
+msgid "General indexing settings"
+msgstr ""
+
+#: admin/sections/class-options-indexing.php:42
 #: artifact/admin/sections/class-options-indexing.php:37
 msgid "Noindex paginated archives"
 msgstr ""
 
-#: admin/sections/class-options-indexing.php:38
-msgid "Noindex RSS feeds"
-msgstr ""
-
-#: admin/sections/class-options-indexing.php:39
-#: artifact/admin/sections/class-options-indexing.php:38
+#: admin/sections/class-options-indexing.php:43
+#: artifact/admin/sections/class-options-indexing.php:39
 msgid "Disable rel=\"next\"/rel=\"prev\""
 msgstr ""
 
-#: admin/sections/class-options-indexing.php:58
+#: admin/sections/class-options-indexing.php:50
+#: artifact/admin/sections/class-options-indexing.php:58
 msgid "Force canonical to a protocol"
 msgstr ""
 
-#: admin/sections/class-options-indexing.php:66
+#: admin/sections/class-options-indexing.php:58
+#: artifact/admin/sections/class-options-indexing.php:66
 msgid "Leave default"
 msgstr ""
 
-#: admin/sections/class-options-indexing.php:79
-#: artifact/admin/sections/class-options-indexing.php:60
+#: admin/sections/class-options-indexing.php:74
+msgid "Feed settings"
+msgstr ""
+
+#: admin/sections/class-options-indexing.php:80
+msgid "Noindex all RSS feeds"
+msgstr ""
+
+#: admin/sections/class-options-indexing.php:81
+msgid "Noindex comment RSS feeds"
+msgstr ""
+
+#: admin/sections/class-options-indexing.php:82
+msgid "Noindex RSS feeds for categories, tags & other archives"
+msgstr ""
+
+#: admin/sections/class-options-indexing.php:95
+msgid "Homepage settings"
+msgstr ""
+
+#: admin/sections/class-options-indexing.php:102
+#: admin/sections/class-options-indexing.php:104
+#: admin/sections/class-options-indexing.php:106
+#: admin/sections/class-options-indexing.php:108
+#. Translators: %s expands to noindex.
+#. Translators: %s expands to nofollow.
+#. Translators: %s expands to noarchive.
+#. Translators: %s expands to nosnippet.
+msgid "Add %s"
+msgstr ""
+
+#: admin/sections/class-options-indexing.php:117
+#: artifact/admin/sections/class-options-indexing.php:79
 msgid ""
 "If you want to change Yoast SEO's defaults for indexing, this is your spot. "
 "Note that the defaults you're changing are defaults in Yoast SEO for a good "
 "reason, so you're doing this at your own risk."
 msgstr ""
 
-#: admin/sections/class-options-schema.php:30
-#: artifact/admin/sections/class-options-schema.php:30
-msgid "Schema settings"
+#: admin/sections/class-options-indexing.php:124
+msgid "Set the index settings for the homepage."
 msgstr ""
 
-#: admin/sections/class-options-schema.php:36
+#: admin/sections/class-options-indexing.php:131
+msgid "Set the SEO settings for your site's RSS feeds."
+msgstr ""
+
+#: admin/sections/class-options-schema.php:27
+msgid "General Schema.org settings"
+msgstr ""
+
+#: admin/sections/class-options-schema.php:33
 #: artifact/admin/sections/class-options-schema.php:36
 msgid "Disable schema output"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:37
+#: admin/sections/class-options-schema.php:34
 #: artifact/admin/sections/class-options-schema.php:37
 msgid "Remove date published"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:38
+#: admin/sections/class-options-schema.php:35
 #: artifact/admin/sections/class-options-schema.php:38
 msgid "Remove date modified"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:39
+#: admin/sections/class-options-schema.php:48
+msgid "Disable specific Schema.org pieces"
+msgstr ""
+
+#: admin/sections/class-options-schema.php:54
 #: artifact/admin/sections/class-options-schema.php:39
 msgid "Disable Organization Schema output"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:40
+#: admin/sections/class-options-schema.php:55
 #: artifact/admin/sections/class-options-schema.php:40
 msgid "Disable WebSite Schema output"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:41
+#: admin/sections/class-options-schema.php:56
 #: artifact/admin/sections/class-options-schema.php:41
 msgid "Disable WebPage Schema output"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:42
+#: admin/sections/class-options-schema.php:57
 #: artifact/admin/sections/class-options-schema.php:42
 msgid "Disable Breadcrumb Schema output"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:43
+#: admin/sections/class-options-schema.php:58
 #: artifact/admin/sections/class-options-schema.php:43
 msgid "Disable Article Schema output"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:44
+#: admin/sections/class-options-schema.php:59
 #: artifact/admin/sections/class-options-schema.php:44
 msgid "Disable Person Schema output"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:45
+#: admin/sections/class-options-schema.php:60
 #: artifact/admin/sections/class-options-schema.php:45
 msgid "Disable Author's Person Schema output"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:46
+#: admin/sections/class-options-schema.php:61
 #: artifact/admin/sections/class-options-schema.php:46
 msgid "Disable Site Search Schema output"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:47
+#: admin/sections/class-options-schema.php:62
 #: artifact/admin/sections/class-options-schema.php:47
 msgid "Disable FAQ Schema output"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:48
+#: admin/sections/class-options-schema.php:63
 #: artifact/admin/sections/class-options-schema.php:48
 msgid "Disable HowTo Schema output"
 msgstr ""
 
-#: admin/sections/class-options-schema.php:72
+#: admin/sections/class-options-schema.php:73
 #: artifact/admin/sections/class-options-schema.php:72
 msgid "Change the settings for Yoast SEO's extensive Schema output."
 msgstr ""
 
-#: admin/sections/class-options-xml-sitemap.php:30
-#: artifact/admin/sections/class-options-xml-sitemap.php:30
-msgid "XML sitemap settings"
+#: admin/sections/class-options-schema.php:80
+msgid "Disable specific pieces from the Yoast SEO Schema ouput."
 msgstr ""
 
-#: admin/sections/class-options-xml-sitemap.php:36
+#: admin/sections/class-options-xml-sitemap.php:38
+msgid "General XML sitemap settings"
+msgstr ""
+
+#: admin/sections/class-options-xml-sitemap.php:44
 #: artifact/admin/sections/class-options-xml-sitemap.php:36
 msgid "Exclude images"
 msgstr ""
 
-#: admin/sections/class-options-xml-sitemap.php:37
+#: admin/sections/class-options-xml-sitemap.php:45
 #: artifact/admin/sections/class-options-xml-sitemap.php:37
 msgid "Exclude lastmod field from XML sitemaps"
 msgstr ""
 
-#: admin/sections/class-options-xml-sitemap.php:38
+#: admin/sections/class-options-xml-sitemap.php:46
 #: artifact/admin/sections/class-options-xml-sitemap.php:38
 msgid "Disable automatic ping of search engines on update"
 msgstr ""
 
-#: admin/sections/class-options-xml-sitemap.php:56
-#: artifact/admin/sections/class-options-xml-sitemap.php:56
-msgid "Exclude posts/pages by ID"
-msgstr ""
-
-#: admin/sections/class-options-xml-sitemap.php:57
-#: artifact/admin/sections/class-options-xml-sitemap.php:57
-msgid "Exclude tags/categories/terms by ID"
-msgstr ""
-
-#: admin/sections/class-options-xml-sitemap.php:63
-#: artifact/admin/sections/class-options-xml-sitemap.php:63
-msgid "Separate with commas"
-msgstr ""
-
-#: admin/sections/class-options-xml-sitemap.php:78
+#: admin/sections/class-options-xml-sitemap.php:53
 #: artifact/admin/sections/class-options-xml-sitemap.php:78
 msgid "Maximum number of items in an XML sitemap"
 msgstr ""
 
-#: admin/sections/class-options-xml-sitemap.php:85
+#: admin/sections/class-options-xml-sitemap.php:60
 #: artifact/admin/sections/class-options-xml-sitemap.php:85
 msgid "Set to 0 to stick to default."
 msgstr ""
 
-#: admin/sections/class-options-xml-sitemap.php:95
-#: artifact/admin/sections/class-options-xml-sitemap.php:95
-msgid "Change the settings for XML sitemaps."
+#: admin/sections/class-options-xml-sitemap.php:75
+msgid "Exclude URLs by ID"
+msgstr ""
+
+#: admin/sections/class-options-xml-sitemap.php:81
+#: artifact/admin/sections/class-options-xml-sitemap.php:56
+msgid "Exclude posts/pages by ID"
+msgstr ""
+
+#: admin/sections/class-options-xml-sitemap.php:82
+#: artifact/admin/sections/class-options-xml-sitemap.php:57
+msgid "Exclude tags/categories/terms by ID"
+msgstr ""
+
+#: admin/sections/class-options-xml-sitemap.php:88
+#: artifact/admin/sections/class-options-xml-sitemap.php:63
+msgid "Separate with commas"
+msgstr ""
+
+#: admin/sections/class-options-xml-sitemap.php:112
+msgid "Exclude users by role"
+msgstr ""
+
+#: admin/sections/class-options-xml-sitemap.php:142
+#. Translators: %s becomes the name of the role.
+msgid "Change the general settings for XML sitemaps."
+msgstr ""
+
+#: admin/sections/class-options-xml-sitemap.php:151
+msgid "Exclude users with the following roles from XML sitemaps:"
+msgstr ""
+
+#: admin/sections/class-options-xml-sitemap.php:160
+msgid "Exclude pages or terms from XML sitemaps by ID."
 msgstr ""
 
 #: admin/views/admin-page.php:12 artifact/admin/views/admin-page.php:12
 msgid "Yoast SEO Granular controls"
 msgstr ""
 
-#: admin/views/admin-page.php:23 artifact/admin/views/admin-page.php:23
+#: admin/views/admin-page.php:23
+msgid "General"
+msgstr ""
+
+#: admin/views/admin-page.php:24 artifact/admin/views/admin-page.php:23
 msgid "Indexing"
 msgstr ""
 
-#: admin/views/admin-page.php:24 artifact/admin/views/admin-page.php:24
+#: admin/views/admin-page.php:25 artifact/admin/views/admin-page.php:24
 msgid "Schema"
 msgstr ""
 
-#: admin/views/admin-page.php:25 artifact/admin/views/admin-page.php:25
+#: admin/views/admin-page.php:26 artifact/admin/views/admin-page.php:25
 msgid "XML Sitemaps"
 msgstr ""
 
-#: admin/views/admin-page.php:40 artifact/admin/views/admin-page.php:40
+#: admin/views/admin-page.php:44 artifact/admin/views/admin-page.php:40
 msgid "Save settings"
 msgstr ""
 
@@ -251,6 +335,26 @@ msgstr ""
 
 #: admin/views/like-box.php:12 artifact/admin/views/like-box.php:12
 msgid "Let other people know that it works with your WordPress setup."
+msgstr ""
+
+#: artifact/admin/sections/class-options-indexing.php:31
+msgid "Indexing settings"
+msgstr ""
+
+#: artifact/admin/sections/class-options-indexing.php:38
+msgid "Noindex RSS feeds"
+msgstr ""
+
+#: artifact/admin/sections/class-options-schema.php:30
+msgid "Schema settings"
+msgstr ""
+
+#: artifact/admin/sections/class-options-xml-sitemap.php:30
+msgid "XML sitemap settings"
+msgstr ""
+
+#: artifact/admin/sections/class-options-xml-sitemap.php:95
+msgid "Change the settings for XML sitemaps."
 msgstr ""
 
 #: artifact/vendor/yoast/i18n-module/i18n-module.php:189

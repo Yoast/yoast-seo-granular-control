@@ -50,6 +50,10 @@ class Options {
 		'xml-exclude-terms'              => '',
 		'xml-number-items'               => 0,
 		'xml-exclude-roles'              => [],
+		'xml-disable-author'             => false,
+		'xml-disable-post_type'          => [],
+		'xml-disable-taxonomy'           => [],
+		'xml-include-empty-taxonomy'     => [],
 	];
 
 	/**
@@ -90,6 +94,10 @@ class Options {
 		'xml-exclude-terms'              => 'string',
 		'xml-number-items'               => 'int',
 		'xml-exclude-roles'              => 'array',
+		'xml-disable-author'             => 'bool',
+		'xml-disable-post_type'          => 'array',
+		'xml-disable-taxonomy'           => 'array',
+		'xml-include-empty-taxonomy'     => 'array',
 	];
 
 	/**

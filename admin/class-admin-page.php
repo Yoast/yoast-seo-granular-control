@@ -78,7 +78,7 @@ class Admin_Page extends Admin {
 				$rss = '<li class="yoast">' . __( 'No news items, feed might be broken...', 'yoast-seo-granular-control' ) . '</li>';
 			}
 			else {
-				$rss_items = $rss->get_items( 0, $rss->get_item_quantity( 3 ) );
+				$rss_items = $rss->get_items( 0, $rss->get_item_quantity( 5 ) );
 
 				$rss = '';
 				foreach ( $rss_items as $item ) {

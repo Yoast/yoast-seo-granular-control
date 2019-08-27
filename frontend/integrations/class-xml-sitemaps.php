@@ -26,6 +26,9 @@ class XML_Sitemaps implements Integration {
 		add_filter( 'wpseo_sitemap_entries_per_page', [ $this, 'filter_entries_per_page' ] );
 		add_filter( 'wpseo_allow_xml_sitemap_ping', [ $this, 'filter_ping' ] );
 		add_filter( 'wpseo_sitemap_exclude_author', [ $this, 'filter_users' ] );
+		add_filter( 'wpseo_sitemap_exclude_taxonomy', [ $this, 'exclude_taxonomy' ], 10, 2 );
+		add_filter( 'wpseo_sitemap_exclude_post_type', [ $this, 'exclude_post_type' ], 10, 2 );
+		add_filter( 'wpseo_sitemap_exclude_empty_terms_taxonomy', [ $this, 'show_empty_terms'], 10, 2 );
 	}
 
 	/**
@@ -133,5 +136,51 @@ class XML_Sitemaps implements Integration {
 		}
 
 		return $users;
+	}
+
+	/**
+	 * Disables a taxonomy XML sitemap, if needed.
+	 *
+	 * @param bool $bool Whether or not the XML sitemap should be disabled.
+	 * @param string $taxonomy The taxonomy we're checking.
+	 *
+	 * @return bool Whether or not the XML sitemap should be disabled.
+	 */
+	public function exclude_taxonomy( $bool, $taxonomy ) {
+		$exclude = Options::get( 'xml-disable-taxonomy' );
+		if ( $exclude[ $taxonomy ] === 'on' ) {
+			return true;
+		}
+
+		return $bool;
+	}
+
+	/**
+	 * Disables a post type XML sitemap, if needed.
+	 *
+	 * @param bool $bool Whether or not the XML sitemap should be disabled.
+	 * @param string $post_type The post type we're checking.
+	 *
+	 * @return bool Whether or not the XML sitemap should be disabled.
+	 */
+	public function exclude_post_type( $bool, $post_type ) {
+		$exclude = Options::get( 'xml-disable-post_type' );
+		if ( $exclude[ $post_type ] === 'on' ) {
+			return true;
+		}
+
+		return $bool;
+	}
+
+	public function show_empty_terms( $bool, $taxonomy ) {
+		$show_empty = Options::get( 'xml-include-empty-taxonomy' );
+		if ( $show_empty[ $taxonomy ] === 'on' ) {
+			return false;
+		}
+		return $bool;
+	}
+
+	public function disable_author_sitemap() {
+
 	}
 }
