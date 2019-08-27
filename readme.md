@@ -1,74 +1,62 @@
-=== Granular control for Yoast SEO ===
-Contributors: yoast, joostdevalk
-Tags: yoast, xml sitemaps, schema, seo
-Requires at least: 5.0
-Tested up to: 5.2
-Stable tag: 1.0
-Requires PHP: 5.6
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+# Yoast SEO
 
-This plugin enables expert users and developers to change advanced settings in Yoast SEO, and to alter its defaults. Not for everyone.
+## Welcome to the Granular Control for Yoast SEO GitHub repository
 
-== Description ==
+## Want to contribute to Granular Control for Yoast SEO?
 
-Granular Control for Yoast SEO enables expert users and developers to change advanced settings in Yoast SEO, and to alter its defaults. Please take care when using these options; most users won't need to use this plugin, and those who do should take care not to _harm_ their site's SEO.
+### Prerequisites
+
+At Yoast, we make use a specific toolset to develop our code. Please ensure you have the following tools installed before contributing. 
+
+* [Composer](https://getcomposer.org/)
+* [Yarn](https://yarnpkg.com/en/)
+* [Grunt](https://gruntjs.com/)
+
+### Getting started
+After installing the aforementioned tools, you can use the steps below to acquire a development version of Granular Control for Yoast SEO.
+Please note that this will download the latest development version of Granular Control for Yoast SEO. While this version is usually stable,
+it is not recommended for use in a production environment.
+
+Within your WordPress installation, navigate to `wp-content/plugins` and run the following commands:
+```bash
+git clone https://github.com/Yoast/yoast-seo-granular-control.git
+cd yoast-seo-granular-control
+```
+
+To install all the necessary dependencies, run the following commands:
+```bash
+composer install
+yarn
+grunt build
+```
+
+Please note that if you change anything in the JavaScript or CSS, you'll have to run `grunt build:js` or `grunt build:css`, respectively.
+
+This repository uses [the Yoast grunt tasks plugin](https://github.com/Yoast/plugin-grunt-tasks).
+
+## Support
+
+This is a developer's portal for Yoast SEO and should not be used for support. Please visit the
+[support forums](https://wordpress.org/support/plugin/yoast-seo-granular-control).
 
 Unfortunately, due to the nature of this plugin’s features, we can't be held responsible nor provide support for any problems with your website, visibility in search engines, drops in rankings or other issues related to your changes. Installing and using this plugin is solely your own responsibility.
 
-=== Features ===
+## Reporting bugs
 
-==== Feature switches ====
+If you find an issue, [let us know here](https://github.com/yoast/yoast-seo-granular-control/issues/new)! Please follow [these guidelines](https://yoa.st/1uo) on how to write a good bug report.
 
-* Disable Yoast Gutenberg / block editor blocks.
-* Disable author archives (by role), and return a 301 to the homepage.
+It may help us a lot if you can provide a backtrace of the error encountered. You can use [code in this gist](https://gist.github.com/jrfnl/5925642) to enable the backtrace in your website's configuration.
 
-==== Crawl & indexing ====
+## Contributions
 
-* Disable (remove) `rel next/prev`
-* Disable/enable `noindex` on paginated requests
-* Enable indexing/noindexing of feeds, either all or just archive feeds or comment feeds
-* Homepage meta robots settings
-* Force canonical protocol (http / https / automatic)
+Anyone is welcome to contribute to Yoast SEO. Please
+[read the guidelines](.github/CONTRIBUTING.md) for contributing to this
+repository.
 
-==== Schema ====
+There are various ways you can contribute:
 
-* Disable entirely
-* Remove `datePublished` and / or `dateModified` properties
-* Disabling/removing specific pieces:
-  * `Organization`, `WebSite`, `WebPage`, `Article`
-  * `Person`
-  * `Breadcrumb`
-  * Site search
-  * `FAQ`, `HowTo`
-  
-==== XML sitemaps ====
+* [Raise an issue](https://github.com/yoast/wordpress-seo/issues) on GitHub.
+* Send us a Pull Request with your bug fixes and/or new features.
+* [Translate Yoast SEO into different languages](http://translate.yoast.com/projects/wordpress-seo/).
+* Provide feedback and [suggestions on enhancements](https://github.com/yoast/wordpress-seo/issues?direction=desc&labels=Enhancement&page=1&sort=created&state=open).
 
-* Exclude images.
-* Disable author, post type and taxonomy type sitemaps as you wish.
-* Exclude posts/pages (by ID).
-* Exclude terms (by ID).
-* Exclude author(s) by role.
-* Change max number of entries per sitemap.
-* Include empty archives for terms.
-* Exclude `<lastmod>` from XML sitemap.
-* Disable search engine notifications about sitemap changes.
-
-== Screenshots ==
-
-1. General settings.
-2. Indexing settings.
-3. Schema settings.
-4. XML Sitemaps settings.
-
-== Installation ==
-
-1. Upload the plugin files to the `/wp-content/plugins/granular-control-yoast-seo` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-1. Use the SEO -> Granular control screen to configure the plugin
-
-== Changelog ==
-
-= 1.0 =
-
-* Initial version.
