@@ -28,7 +28,17 @@ class XML_Sitemaps implements Integration {
 		add_filter( 'wpseo_sitemap_exclude_author', [ $this, 'filter_users' ] );
 		add_filter( 'wpseo_sitemap_exclude_taxonomy', [ $this, 'exclude_taxonomy' ], 10, 2 );
 		add_filter( 'wpseo_sitemap_exclude_post_type', [ $this, 'exclude_post_type' ], 10, 2 );
-		add_filter( 'wpseo_sitemap_exclude_empty_terms_taxonomy', [ $this, 'show_empty_terms'], 10, 2 );
+		add_filter( 'wpseo_sitemap_exclude_empty_terms_taxonomy', [ $this, 'show_empty_terms' ], 10, 2 );
+		add_action( 'parse_request', [ $this, 'add_hooks' ] );
+	}
+
+	/**
+	 * This function is used to add hooks that can only be hooked after parse_request.
+	 *
+	 * @return void
+	 */
+	public function add_hooks() {
+		add_filter( 'option_wpseo_titles', [ $this, 'filter_titles_option' ] );
 	}
 
 	/**
@@ -141,14 +151,14 @@ class XML_Sitemaps implements Integration {
 	/**
 	 * Disables a taxonomy XML sitemap, if needed.
 	 *
-	 * @param bool $bool Whether or not the XML sitemap should be disabled.
+	 * @param bool   $bool     Whether or not the XML sitemap should be disabled.
 	 * @param string $taxonomy The taxonomy we're checking.
 	 *
 	 * @return bool Whether or not the XML sitemap should be disabled.
 	 */
 	public function exclude_taxonomy( $bool, $taxonomy ) {
 		$exclude = Options::get( 'xml-disable-taxonomy' );
-		if ( $exclude[ $taxonomy ] === 'on' ) {
+		if ( isset( $exclude[ $taxonomy ] ) && $exclude[ $taxonomy ] === 'on' ) {
 			return true;
 		}
 
@@ -158,29 +168,52 @@ class XML_Sitemaps implements Integration {
 	/**
 	 * Disables a post type XML sitemap, if needed.
 	 *
-	 * @param bool $bool Whether or not the XML sitemap should be disabled.
+	 * @param bool   $bool      Whether or not the XML sitemap should be disabled.
 	 * @param string $post_type The post type we're checking.
 	 *
 	 * @return bool Whether or not the XML sitemap should be disabled.
 	 */
 	public function exclude_post_type( $bool, $post_type ) {
 		$exclude = Options::get( 'xml-disable-post_type' );
-		if ( $exclude[ $post_type ] === 'on' ) {
+		if ( isset( $exclude[ $post_type ] ) && $exclude[ $post_type ] === 'on' ) {
 			return true;
 		}
 
 		return $bool;
 	}
 
+	/**
+	 * Disables a taxonomy type XML sitemap, if needed.
+	 *
+	 * @param bool   $bool     Whether or not the XML sitemap should be disabled.
+	 * @param string $taxonomy The taxonomy we're checking.
+	 *
+	 * @return bool Whether or not the XML sitemap should be disabled.
+	 */
 	public function show_empty_terms( $bool, $taxonomy ) {
 		$show_empty = Options::get( 'xml-include-empty-taxonomy' );
 		if ( $show_empty[ $taxonomy ] === 'on' ) {
 			return false;
 		}
+
 		return $bool;
 	}
 
-	public function disable_author_sitemap() {
-
+	/**
+	 * Filters the WPSEO titles option during sitemap requests to disable the author XML sitemap.
+	 *
+	 * @param array $option_value The value of the wpseo_titles option.
+	 *
+	 * @return array $option_value The value of the wpseo_titles option.
+	 */
+	public function filter_titles_option( $option_value ) {
+		global $wp;
+		if (
+			( $wp->query_vars['sitemap'] === '1' || $wp->query_vars['sitemap'] === 'author' ) &&
+			Options::get( 'xml-disable-author' )
+		) {
+			$option_value['disable-author'] = true;
+		}
+		return $option_value;
 	}
 }
