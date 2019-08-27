@@ -192,7 +192,7 @@ class XML_Sitemaps implements Integration {
 	 */
 	public function show_empty_terms( $bool, $taxonomy ) {
 		$show_empty = Options::get( 'xml-include-empty-taxonomy' );
-		if ( $show_empty[ $taxonomy ] === 'on' ) {
+		if ( isset( $show_empty[ $taxonomy ]) && $show_empty[ $taxonomy ] ) {
 			return false;
 		}
 
@@ -209,7 +209,7 @@ class XML_Sitemaps implements Integration {
 	public function filter_titles_option( $option_value ) {
 		global $wp;
 		if (
-			( $wp->query_vars['sitemap'] === '1' || $wp->query_vars['sitemap'] === 'author' ) &&
+			( isset( $wp->query_vars['sitemap'] ) && ( $wp->query_vars['sitemap'] === '1' || $wp->query_vars['sitemap'] === 'author' ) ) &&
 			Options::get( 'xml-disable-author' )
 		) {
 			$option_value['disable-author'] = true;

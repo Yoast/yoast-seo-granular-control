@@ -85,7 +85,7 @@ class Indexing implements Integration {
 	 */
 	public function force_canonical_protocol( $canonical ) {
 		if ( Options::get( 'force-canonical' ) !== 'default' ) {
-			$canonical = preg_replace( '/^https?/', Options::get( 'force-canonical' ), $canonical );
+			$canonical = preg_replace( '/^(https?)/', Options::get( 'force-canonical' ), $canonical );
 		}
 
 		return $canonical;
