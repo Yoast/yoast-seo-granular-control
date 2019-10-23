@@ -19,7 +19,7 @@
     "@yoast/grunt-plugin-tasks": "1.4.2"
   },
   "yoast": {
-    "pluginVersion": "0.1"
+    "pluginVersion": "1.0"
   },
   "dependencies": {}
 }

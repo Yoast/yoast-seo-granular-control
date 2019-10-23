@@ -8,7 +8,7 @@
  *
  * @wordpress-plugin
  * Plugin Name: Granular Control for Yoast SEO
- * Version:     0.1
+ * Version:     1.0
  * Plugin URI:  https://yoast.com/wordpress/plugins/granular-control/
  * Description: This plugin gives you granular control over some of the settings of Yoast SEO. If you love Yoast, but want more control over the fine details of canonicalization pagination and more, this plugin is for you.
  * Author:      Team Yoast
@@ -25,7 +25,7 @@ if ( ! function_exists( 'add_filter' ) ) {
 }
 
 define( 'YSEO_GC_PLUGIN_FILE', __FILE__ );
-define( 'YSEO_GC_PLUGIN_VERSION', '0.1' );
+define( 'YSEO_GC_PLUGIN_VERSION', '1.0' );
 define( 'YSEO_GC_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'YSEO_GC_DIR_URL', plugin_dir_url( __FILE__ ) );
 
