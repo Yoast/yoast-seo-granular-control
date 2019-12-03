@@ -4,6 +4,7 @@
 build:
   - 'build:css'
   - 'build:js'
+
 # Build a distribution zip file
 'artifact':
   - 'shell:composer-install-production'
@@ -25,7 +26,7 @@ build:
 # Get the project ready for release
 # Note that using this command triggers some global variables to be different than if you use simply `build`
 release:
-  - build
+  - 'build'
 
 # Deploy current state to WordPress.org trunk
 'deploy:trunk':
@@ -46,4 +47,4 @@ release:
 
 # Default task
 default:
-  - build
+  - 'build'
