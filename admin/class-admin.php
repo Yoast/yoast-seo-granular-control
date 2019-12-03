@@ -20,7 +20,7 @@ class Admin {
 	public $hook = 'yoast-seo-granular-control';
 
 	/**
-	 * Construct of class Clicky_admin.
+	 * Construct of class Yoast SEO: Granular Control admin.
 	 *
 	 * @access private
 	 * @link   https://codex.wordpress.org/Function_Reference/add_action
@@ -52,7 +52,7 @@ class Admin {
 	private function register_menu_pages() {
 		add_submenu_page(
 			'wpseo_dashboard',
-			__( 'Yoast SEO Granular Control', 'yoast-seo-granular-control' ),
+			__( 'Yoast SEO: Granular Control', 'yoast-seo-granular-control' ),
 			__( 'Granular Control', 'yoast-seo-granular-control' ),
 			'manage_options',
 			$this->hook,

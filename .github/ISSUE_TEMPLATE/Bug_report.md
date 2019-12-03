@@ -46,7 +46,7 @@ about: Create a report to help us improve
 #### Used versions
 * WordPress version: 
 * Yoast SEO version: 
-* Granular Control for Yoast SEO version:
+* Yoast SEO: Granular Control version:
 * <!-- If relevant -->Gutenberg plugin version: 
 * <!-- If relevant -->Classic Editor plugin version: 
 * Relevant plugins in case of a bug: 

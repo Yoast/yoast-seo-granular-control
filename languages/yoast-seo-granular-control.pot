@@ -1,8 +1,8 @@
 # Copyright (C) 2019 Team Yoast
-# This file is distributed under the same license as the Granular Control for Yoast SEO package.
+# This file is distributed under the same license as the Yoast SEO: Granular Control package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Granular Control for Yoast SEO 0.1\n"
+"Project-Id-Version: Yoast SEO: Granular Control 0.1\n"
 "Report-Msgid-Bugs-To: "
 "https://github.com/yoast/yoast-seo-granular-control/issues\n"
 "POT-Creation-Date: 2019-10-01 12:54:48+00:00\n"
@@ -46,7 +46,7 @@ msgid "Latest news from Yoast"
 msgstr ""
 
 #: admin/class-admin.php:55 artifact/admin/class-admin.php:55
-msgid "Yoast SEO Granular Control"
+msgid "Yoast SEO: Granular Control"
 msgstr ""
 
 #: admin/class-admin.php:56 artifact/admin/class-admin.php:56
@@ -354,7 +354,7 @@ msgid "Include empty term archives"
 msgstr ""
 
 #: admin/views/admin-page.php:12 artifact/admin/views/admin-page.php:12
-msgid "Yoast SEO Granular controls"
+msgid "Yoast SEO: Granular Control"
 msgstr ""
 
 #: admin/views/admin-page.php:23 artifact/admin/views/admin-page.php:23
@@ -429,7 +429,7 @@ msgid "Register now &raquo;"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Granular Control for Yoast SEO"
+msgid "Yoast SEO: Granular Control"
 msgstr ""
 
 #. Plugin URI of the plugin/theme

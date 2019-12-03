@@ -1,13 +1,13 @@
 <?php
 /**
- * Granular Control for Yoast SEO
+ * Yoast SEO: Granular Control
  *
  * @package   Yoast/Yoast-SEO-Granular-Control
  * @copyright Copyright (C) 2019 Yoast BV - support@yoast.com
  * @license   http://www.gnu.org/licenses/gpl-2.0.html GNU General Public License, version 2 or higher
  *
  * @wordpress-plugin
- * Plugin Name: Granular Control for Yoast SEO
+ * Plugin Name: Yoast SEO: Granular Control
  * Version:     1.0
  * Plugin URI:  https://yoast.com/wordpress/plugins/granular-control/
  * Description: This plugin gives you granular control over some of the settings of Yoast SEO. If you love Yoast, but want more control over the fine details of canonicalization pagination and more, this plugin is for you.

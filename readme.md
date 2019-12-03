@@ -1,8 +1,8 @@
 # Yoast SEO
 
-## Welcome to the Granular Control for Yoast SEO GitHub repository
+## Welcome to the Yoast SEO: Granular Control GitHub repository
 
-## Want to contribute to Granular Control for Yoast SEO?
+## Want to contribute to Yoast SEO: Granular Control?
 
 ### Prerequisites
 
@@ -13,8 +13,8 @@ At Yoast, we make use a specific toolset to develop our code. Please ensure you 
 * [Grunt](https://gruntjs.com/)
 
 ### Getting started
-After installing the aforementioned tools, you can use the steps below to acquire a development version of Granular Control for Yoast SEO.
-Please note that this will download the latest development version of Granular Control for Yoast SEO. While this version is usually stable,
+After installing the aforementioned tools, you can use the steps below to acquire a development version of Yoast SEO: Granular Control.
+Please note that this will download the latest development version of Yoast SEO: Granular Control. While this version is usually stable,
 it is not recommended for use in a production environment.
 
 Within your WordPress installation, navigate to `wp-content/plugins` and run the following commands:

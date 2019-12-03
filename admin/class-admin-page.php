@@ -1,14 +1,14 @@
 <?php
 /**
- * Clicky for WordPress plugin file.
+ * Yoast SEO: Granular Control for WordPress plugin file.
  *
- * @package Yoast\Clicky\Admin
+ * @package Yoast\Yoast_SEO_Granular_Control\Admin
  */
 
 namespace Yoast_SEO_Granular_Control;
 
 /**
- * Class for the Clicky plugin admin page.
+ * Class for the Yoast SEO: Granular Control plugin admin page.
  */
 class Admin_Page extends Admin {
 

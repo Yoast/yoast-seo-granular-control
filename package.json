@@ -1,6 +1,6 @@
 {
   "name": "yoast-seo-granular-control",
-  "description": "Development files for the Yoast SEO Granular Control plugin",
+  "description": "Development files for the Yoast SEO: Granular Control plugin",
   "plugin": {
     "glotpress": "https://translate.yoast.com",
     "glotpress_path": "yoast-seo-granular-control",

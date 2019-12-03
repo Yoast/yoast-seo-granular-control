@@ -23,7 +23,7 @@
 ### Technical info
 * WordPress version:
 * Yoast SEO version:
-* Granular Control for Yoast SEO version:
+* Yoast SEO: Granular Control version:
 <!-- You can check these boxes once you've created the issue. -->
 * If relevant, which editor is affected (or editors): 
 - [ ] Classic Editor

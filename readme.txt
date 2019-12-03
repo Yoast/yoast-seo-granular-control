@@ -1,4 +1,4 @@
-=== Granular control for Yoast SEO ===
+=== Yoast SEO: Granular Control ===
 Contributors: yoast, joostdevalk
 Tags: yoast, xml sitemaps, schema, seo
 Requires at least: 5.0
@@ -12,7 +12,7 @@ This plugin enables expert users and developers to change advanced settings in Y
 
 == Description ==
 
-Granular Control for Yoast SEO enables expert users and developers to change advanced settings in Yoast SEO, and to alter its defaults. Please take care when using these options; most users won't need to use this plugin, and those who do should take care not to _harm_ their site's SEO.
+Yoast SEO: Granular Control enables expert users and developers to change advanced settings in Yoast SEO, and to alter its defaults. Please take care when using these options; most users won't need to use this plugin, and those who do should take care not to _harm_ their site's SEO.
 
 Unfortunately, due to the nature of this plugin’s features, we can't be held responsible nor provide support for any problems with your website, visibility in search engines, drops in rankings or other issues related to your changes. Installing and using this plugin is solely your own responsibility.
 
@@ -63,9 +63,9 @@ Unfortunately, due to the nature of this plugin’s features, we can't be held r
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/granular-control-yoast-seo` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/yoast-seo-granular-control` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
-1. Use the SEO -> Granular control screen to configure the plugin
+1. Use the SEO -> Granular Control screen to configure the plugin
 
 == Changelog ==
 
