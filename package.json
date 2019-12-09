@@ -1,6 +1,6 @@
 {
   "name": "yoast-seo-granular-control",
-  "description": "Development files for the Yoast SEO Granular Control plugin",
+  "description": "Development files for the Yoast SEO: Granular Control plugin",
   "plugin": {
     "glotpress": "https://translate.yoast.com",
     "glotpress_path": "yoast-seo-granular-control",
@@ -16,7 +16,7 @@
     "url": "https://github.com/Yoast/yoast-seo-granular-control"
   },
   "devDependencies": {
-    "@yoast/grunt-plugin-tasks": "1.4.2"
+    "@yoast/grunt-plugin-tasks": "^1.6.0"
   },
   "yoast": {
     "pluginVersion": "1.0"

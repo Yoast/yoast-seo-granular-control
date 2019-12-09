@@ -1,15 +1,15 @@
 <?php
 /**
- * Clicky for WordPress plugin file.
+ * Yoast SEO: Granular Control for WordPress plugin file.
  *
- * @package Yoast/Clicky/View
+ * @package Yoast/Yoast_SEO_Granular_Control/View
  */
 
 namespace Yoast_SEO_Granular_Control;
 
 ?><div class="wrap">
 	<h2>
-		<?php esc_html_e( 'Yoast SEO Granular controls', 'yoast-seo-granular-control' ); ?>
+		<?php esc_html_e( 'Yoast SEO: Granular Control', 'yoast-seo-granular-control' ); ?>
         <?php settings_errors(); ?>
 	</h2>
 

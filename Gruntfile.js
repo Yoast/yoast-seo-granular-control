@@ -1,7 +1,6 @@
 var path = require( "path" );
 var loadGruntConfig = require( "load-grunt-config" );
 var timeGrunt = require( "time-grunt" );
-global.developmentBuild = true;
 
 /* global global, require, process */
 module.exports = function( grunt ) {
@@ -10,8 +9,12 @@ module.exports = function( grunt ) {
 	const pkg = grunt.file.readJSON( "package.json" );
 	const pluginVersion = pkg.yoast.pluginVersion;
 
+	// Used to switch between development and release builds.
+	const developmentBuild = ! [ "release", "release:js", "artifact", "deploy:trunk", "deploy:master" ].includes( process.argv[ 2 ] );
+
 	// Define project configuration
 	var project = {
+		developmentBuild,
 		pluginVersion: pluginVersion,
 		pluginSlug: "yoast-seo-granular-control",
 		pluginMainFile: "yoast-seo-granular-control.php",
@@ -79,11 +82,6 @@ module.exports = function( grunt ) {
 		},
 		pkg: pkg,
 	};
-
-	// Used to switch between development and release builds
-	if ( [ "release", "artifact", "deploy:trunk", "deploy:master" ].includes( process.argv[ 2 ] ) ) {
-		global.developmentBuild = false;
-	}
 
 	// Load Grunt configurations and tasks
 	loadGruntConfig( grunt, {
