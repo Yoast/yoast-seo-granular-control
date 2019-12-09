@@ -32,7 +32,6 @@ module.exports = function( grunt ) {
 			sass: "css/src/",
 			grunt: "grunt/",
 			assets: "svn-assets/",
-			images: "images/",
 			js: "js/",
 			languages: "languages/",
 			logs: "logs/",
