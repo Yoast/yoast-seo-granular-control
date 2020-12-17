@@ -16,7 +16,7 @@
     "url": "https://github.com/Yoast/yoast-seo-granular-control"
   },
   "devDependencies": {
-    "@yoast/grunt-plugin-tasks": "^1.6.0"
+    "@yoast/grunt-plugin-tasks": "^2.0.0"
   },
   "yoast": {
     "pluginVersion": "1.0"
